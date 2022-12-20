@@ -17,12 +17,12 @@
   <script>
     left.ondblclick = function(ev){
       let option = ev.target;
-      console.log(option.innerText) // 선택한 option 
+     // console.log(option.innerText) // 선택한 option 
       // 태그생성해서 right append  , innerHTML, append
-      let a = left.removeChild(ev.target);
-      ev.target.remove()
+      //let a = left.removeChild(ev.target);
+      //ev.target.remove()
       // let op = document.createElement("option");
-      right.append(a);
+      right.append(option);
       //ev.target.remove()
     }
 
