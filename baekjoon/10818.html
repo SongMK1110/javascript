@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10818.html</title>
+</head>
+
+<body>
+  <script>
+    // let n = prompt();
+    // let arr = prompt().split(" ");
+    // let max = parseInt(arr[0]);
+    // let min = parseInt(arr[0]);
+    
+    // for(let i = 0; i < n; i++){
+    //   if(max < parseInt(arr[i])){
+    //     max = arr[i];
+    //   }
+    //   if(min > parseInt(arr[i])){
+    //     min = arr[i];
+    //   }
+    // }
+
+    // console.log(min, max);
+
+    let n = prompt();
+    let arr = prompt().split(" ");
+
+    function max(score){
+      let max = parseInt(score[0]);
+      for(let i = 0; i < n; i++){
+        if(max < parseInt(score[i])){
+          max = score[i];
+        }
+      }
+      return max;
+    }
+    function min(score){
+      let min = parseInt(score[0]);
+      for(let i = 0; i < n; i++){
+        if(min > parseInt(score[i])){
+          min = score[i];
+        }
+      }
+      return min;
+    }
+
+    console.log(min(arr), max(arr));
+
+  </script>
+</body>
+
+</html>

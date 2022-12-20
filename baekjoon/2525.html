@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2525.html</title>
+</head>
+<body>
+  <script>
+    let time = prompt().split(" ");
+    let a = parseInt(time[0]);
+    let b = parseInt(time[1]);
+    let c = prompt();
+    c = parseInt(c);
+
+    // a += Math.floor(c / 60);
+    // b += c % 60;
+
+    // if (b >= 60){
+    //   a++;
+    //   b -= 60;
+    // }
+
+    // if (a >= 24){
+    //   a -= 24;
+    // }
+
+    // console.log(a, b);
+
+    let nextDay = new Date();
+    nextDay.setHours(a);
+    nextDay.setMinutes(b+c);
+    
+    console.log(nextDay.getHours(), nextDay.getMinutes());
+
+  </script>
+</body>
+</html>

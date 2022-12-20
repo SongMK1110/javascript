@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1924.html</title>
+</head>
+<body>
+  <script>
+    let num = prompt().split(" ");
+    let x = parseInt(num[0]);
+    let y = parseInt(num[1]);
+
+    let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let week = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+    let sum = 0;
+    for(let i = 0; i < x-1; i++){
+      sum += month[i];
+    }
+    
+    console.log(week[(sum+y)%7]);
+  </script>
+</body>
+</html>
