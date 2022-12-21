@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>append.html</title>
+  <style>
+    div {
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="apple">사과</div>
+  <div id="banana">바나나</div>
+  <div id="kiwi">키위</div>
+  
+  <div id="basket"></div>
+  <script>
+    apple.onclick = function() {
+      //'<div>사과</div>' // createElement
+      let div = document.createElement("div");
+      // span 태그 생성
+      //div.innerHTML = '<span>사과</span>';
+      let span = document.createElement("span");
+      // span 태그 내용
+      span.innerText = "사과";
+      // span 태그를 div에 추가
+      div.append(span);
+      // div.innerHTML = '사과';
+      div.setAttribute("class", "fruit");  //className(property), setAttribute, classList(method)
+      div.title = "사과";
+      div.id = "apple";
+      div.onclick = function() {
+        event.target.remove();
+      }
+      basket.append(div);
+      //basket.innerHTML = '<div>사과</div>';
+      // apple.remove();
+      
+    }
+
+  </script>
+</body>
+</html>

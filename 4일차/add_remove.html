@@ -36,9 +36,14 @@
       
       // innerText
       button.innerHTML = "-";
-
       result.append(div);
 
+      // let btn = document.getElementsByClassName("btn")[0]
+      div.onclick = function () {
+        // let div = document.querySelector(".temp");
+        event.target.remove(true);
+      }
+      
     }
     
 
