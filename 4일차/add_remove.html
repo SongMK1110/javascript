@@ -18,34 +18,35 @@
   <script>
     let btnadd = document.getElementsByClassName("btnadd")[0]
     btnadd.onclick = function () {
-      // result.innerHTML += 
-      // `<div class="temp"><input id="school"><input id="dt"><button class="btn">-</button></div>`
-      let div = document.createElement("div");
-      let input = document.createElement("input");
-      let input1 = document.createElement("input");
-      let button = document.createElement("button");
-      // setAttribute
-      div.setAttribute("class", "temp");
-      input.setAttribute("id", "school");
-      input1.setAttribute("id", "dt");
-      button.setAttribute("class", "btn");
-      // appendChild = append
-      div.appendChild(input);
-      div.appendChild(input1);
-      div.appendChild(button);
-      
-      // innerText
-      button.innerHTML = "-";
-      result.append(div);
+      result.innerHTML +=
+        `<div class="temp"><input id="school"><input id="dt"><button class="btn">-</button></div>`
+      // let div = document.createElement("div");
+      // let input = document.createElement("input");
+      // let input1 = document.createElement("input");
+      // let button = document.createElement("button");
+      // // setAttribute
+      // div.setAttribute("class", "temp");
+      // input.setAttribute("id", "school");
+      // input1.setAttribute("id", "dt");
+      // button.setAttribute("class", "btn");
+      // // appendChild = append
+      // div.appendChild(input);
+      // div.appendChild(input1);
+      // div.appendChild(button);
 
-      // let btn = document.getElementsByClassName("btn")[0]
-      div.onclick = function () {
-        // let div = document.querySelector(".temp");
-        event.target.remove(true);
+      // // innerText
+      // button.innerHTML = "-";
+      // result.append(div);
+
+      let btn = document.getElementsByClassName("btn")
+      for (let i = 0; i < btn.length; i++) {
+        btn[i].onclick = function () {
+          let div = document.querySelector(".temp");
+          div.remove();
+        }
       }
-      
     }
-    
+
 
   </script>
 </body>

@@ -3,6 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>card.html</title>
   <style>
     #container {
       display: grid;
@@ -23,6 +24,8 @@
     .container {
       padding: 2px 16px;
     }
+
+    
   </style>
 </head>
 
@@ -41,20 +44,26 @@
   </div>
   <script>
     let persons = [
-      { name: 'kim', skill: 'Architect & Engineer' },
-      { name: 'park', skill: 'deginner' },
-      { name: 'song', skill: 'program' }
+      { name: 'kim', skill: 'Architect & Engineer', src: '/3일차/img/강아지2.jpg' },
+      { name: 'park', skill: 'deginner', src: '/3일차/img/강아지3.jpg' },
+      { name: 'song', skill: 'program', src: '/3일차/img/고양이.jpg' }
     ]
 
     for (let i = 0; i < persons.length; i++) {
-      let newNode = `<div class="card">
-      <img src="/3일차/img/강아지1.jpg" alt="Avatar" style="width:100%">
-      <div class="container">
-        <h4><b>${persons[i].name}</b></h4>
-        <p>${persons[i].skill}</p>
-      </div>
-    </div>`;
-      document.querySelector("#container").innerHTML += newNode;
+
+      //   let newNode = `<div class="card">
+      //   <img src=${persons[i].src} alt="Avatar" style="width:100%">
+      //   <div class="container">
+      //     <h4><b>${persons[i].name}</b></h4>
+      //     <p>${persons[i].skill}</p>
+      //   </div>
+      // </div>`;
+      // document.querySelector("#container").innerHTML += newNode;
+      let newNode = container.querySelector(".card").cloneNode(true);
+      newNode.querySelector("img").src = persons[i].src;
+      newNode.querySelector("b").innerHTML = persons[i].name;
+      newNode.querySelector("p").innerHTML = persons[i].skill;
+      container.append(newNode);
     }
   </script>
 </body>
