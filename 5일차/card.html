@@ -51,20 +51,22 @@
 
     for (let i = 0; i < persons.length; i++) {
 
-      //   let newNode = `<div class="card">
-      //   <img src=${persons[i].src} alt="Avatar" style="width:100%">
-      //   <div class="container">
-      //     <h4><b>${persons[i].name}</b></h4>
-      //     <p>${persons[i].skill}</p>
-      //   </div>
-      // </div>`;
-      // document.querySelector("#container").innerHTML += newNode;
-      let newNode = container.querySelector(".card").cloneNode(true);
-      newNode.querySelector("img").src = persons[i].src;
-      newNode.querySelector("b").innerHTML = persons[i].name;
-      newNode.querySelector("p").innerHTML = persons[i].skill;
-      container.append(newNode);
+        let newNode = `<div class="card">
+        <img src=${persons[i].src} alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>${persons[i].name}</b></h4>
+          <p>${persons[i].skill}</p>
+        </div>
+      </div>`;
+      document.querySelector("#container").innerHTML += newNode;
+      // let newNode = container.querySelector(".card").cloneNode(true);
+      // newNode.querySelector("img").src = persons[i].src;
+      // newNode.querySelector("b").innerHTML = persons[i].name;
+      // newNode.querySelector("p").innerHTML = persons[i].skill;
+      // container.append(newNode);
     }
+
+    
   </script>
 </body>
 

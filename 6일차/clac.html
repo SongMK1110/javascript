@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>clac.html</title>
+</head>
+<body>
+  <button id="btnReset">문제제출</button>
+  <input type="text" id="num1"> +
+  <input type="text" id="num2"> =
+  <input type="text" id="num3">
+  <button id="btn">결과확인</button>
+  <script>
+    // btnReset 버튼을 클릭하면 1~10 사이의 난수를 생성하여 num1과 num2에 value지정
+    btnReset.addEventListener("click", function(ev){
+      let number1 = Math.floor(Math.random() * 10+1);
+      let number2 = Math.floor(Math.random() * 10+1);
+      num1.value = number1;
+      num2.value = number2;
+
+    });
+
+    btn.addEventListener("click", function(ev){
+      // num3 입력값이 없으면 alert('입력') 실행후 return
+      if(num3.value == ''){
+        alert('입력');
+        return;
+      }
+      let result = num1.value*1 + parseInt(num2.value);
+      if(result == num3.value){
+        alert("맞다");
+      }
+      else{
+        alert("틀리다");
+      }
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>card2.html</title>
+  <style>
+    #template {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 300px);
+      grid-gap: 200px;
+    }
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      width: 40%;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+      padding: 2px 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Card</h2>
+
+  <div id="template">
+    <div class="card" style="display: none;">
+      <div class="container">
+        <h4><b>name</b></h4>
+        <p>email</p>
+        <p>company.name</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function personload() {
+      //ajax 호출
+      let xhr = new XMLHttpRequest();
+      xhr.onload = function () { callback(xhr) };
+      let url = 'https://jsonplaceholder.typicode.com/users';
+      xhr.open('get', url);
+      xhr.send();
+    };
+
+    function callback(xhr) {
+      let cards = JSON.parse(xhr.response);
+      for (let i = 0; i < cards.length; i++) {
+
+        let a = `<div class="card">
+      <img src="/3일차/img/강아지3.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>${cards[i].name}</b></h4>
+        <p>${cards[i].email}</p>
+        <p>${cards[i].company.name}</p>
+      </div>
+    </div>`
+
+        template.innerHTML += a;
+
+      }
+    };
+
+    personload();
+
+
+  </script>
+</body>
+
+</html>

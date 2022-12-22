@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>traverse2.html</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td><button>조회</button></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td><button>조회</button></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>6</td>
+      <td><button>조회</button></td>
+    </tr>
+  </table>
+
+  <script>
+    document.querySelector("table").addEventListener("click", function(ev){
+      // ev.target
+      let node = ev.target;
+      // 버튼을 클릭했으면 해당 버튼의 td태그의 내용 조회
+      if(node.nodeName == "BUTTON"){
+        // let btn = document.querySelector("button")
+        console.log(node.closest("tr").children[0].innerHTML); // childNodes 하면 text(엔터값)도 출력함 그래서 children 하면 태그만 출력
+        console.log(node.closest("tr").children[1].innerHTML);
+        //parentElement (부모 찾음), previousElementSibling (형제 찾음)
+        // closest("") 부모들 중에서 가장 가까운 태그 찾음
+      }
+    })
+  </script>
+</body>
+</html>
