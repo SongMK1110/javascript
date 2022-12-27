@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>comments.html</title>
+  </head>
+  <body>
+    <h3>comments관리</h3>
+    <button onclick="selectPost()">comments조회</button>
+    <div id="commentslist"></div>
+    <form>
+      <input id="id" placeholder="id" />
+      <input id="body" placeholder="body" />
+      <button id="btnAdd" type="button">comments등록</button>
+    </form>
+
+    <script>
+      selectcomment(); // hoisting
+      btnAdd.addEventListener("click", insertcomment); //등록기능, 직접이벤트
+      commentslist.addEventListener("click", deletecomment); //삭제기능, 그룹(위임)이벤트
+      //post 삭제 - delete 방식  /posts/1
+      function deletecomment(ev) {
+        let id = ev.target.getAttribute("data-id");
+        let url = "http://localhost:3000/comments/" + id;
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          selectcomment();
+        };
+        xhr.open("delete", url);
+        //xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send();
+      }
+
+      //post 등록 - post 방식, json 형식 파라미터
+      function insertcomment() {
+        let url = "http://localhost:3000/comments";
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          selectcomment();
+        };
+        xhr.open("post", url);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        let data = { id: id.value, body: body.value };
+        xhr.send(JSON.stringify(data));
+      }
+      //post 전체조회 -get
+      function selectcomment() {
+        let url = "http://localhost:3000/comments";
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          commentslist.innerHTML = "";
+          console.log("요청완료");
+          const comment = JSON.parse(xhr.responseText);
+          for (let i = 0; i < comment.length; i++) {
+            commentslist.innerHTML += `<div>${comment[i].id} ${comment[i].body}<button data-id="${comment[i].id}">삭제</button></div>`;
+          }
+          console.log(xhr.responseText);
+        };
+        xhr.open("get", url); //false하면 동기됨
+        xhr.send(); // 비동기
+        console.log("요청시작");
+      }
+    </script>
+  </body>
+</html>
